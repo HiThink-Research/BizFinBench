@@ -48,24 +48,17 @@ This dataset contains multiple subtasks, each focusing on a different financial 
 ```
 llm-eval
 ├── README.md
-├── __init__.py
 ├── benchmark_code
 ├── config #所有的自定义样例config可以在此文件夹下找到
-├── docs #自动生成的API文档，使用sphinx实现
-├── config.yaml #这是一个评估开源测试集+业务测试集+金融能力测试集的配置文件，仅供参考，自己需要维护对应的配置文件
 ├── eval.py
 ├── inference #所有的推理引擎相关的代码都在此文件夹下
 ├── post_eval.py #推理完成后的评估启动代码
 ├── reqirements.txt
 ├── run.py #整个运行流程的启动入口
 ├── run.sh #评估启动的执行文件，仅供参考，需要自己维护自己的run.sh文件
-├── run_judge.py
 ├── scripts #一些参考的run.sh脚本
-├── tools #一些常用的方法进行封装，如http requests
-├── src
-├── statistic.py #统计最终评估结果和上传的脚本
-├── testsets #所有的非业务测试集都在此文件夹下
-└── utils #所有的打分函数都在此文件夹下
+├── statistic.py #统计最终评估结果
+└── utils
 ```
 
 ### Quick Start 评估本地模型（使用HuggingFace model.generate()函数）
