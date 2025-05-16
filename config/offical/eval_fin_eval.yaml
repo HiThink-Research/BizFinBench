@@ -1,0 +1,58 @@
+# where to save your prediect result
+save_dir: eval_result/
+
+tasks:
+    Anomalous_Event_Attribution:
+        type: text
+        data_path: /sft/data/TESTSET/TESTSET__金融异动溯源评估数据集__0-0-1.jsonl
+        compare_func:
+            path: benchmark_code/BizFinBench/eval_AEA.py
+    Financial_Time_Reasoning:
+        type: text
+        data_path: /sft/data/TESTSET/TESTSET__金融时间推理评估数据集__0-0-1.jsonl
+        compare_func:
+            path: benchmark_code/BizFinBench/eval_financial_timereason.py
+    Financial_Named_Entity_Recognition:
+        type: text
+        data_path: /sft/data/TESTSET/TESTSET__金融NER评估数据集__0-0-1.jsonl
+        compare_func:
+            path: benchmark_code/BizFinBench/eval_financial_timereason.py
+    Financial_Numerical_Computation:
+        type: text
+        data_path: /sft/data/TESTSET/TESTSET__金融数值计算评估测试集__0-0-1.jsonl
+        compare_func:
+            path: benchmark_code/BizFinBench/eval_financial_calculation.py
+    Emotion_Recognition:
+        type: text
+        data_path: /sft/data/TESTSET/TESTSET__金融情绪识别评估数据集__0-0-1.jsonl
+        compare_func:
+            path: benchmark_code/BizFinBench/eval_financial_sentiment.py
+    Stock_Price_Prediction:
+        type: text
+        data_path: /sft/data/TESTSET/TESTSET__金融股票涨跌评估数据集__0-0-1.jsonl
+        compare_func:
+            path: benchmark_code/BizFinBench/eval_stock_prediction.py
+    # Financial_Data_Description:
+    #     type: text
+    #     data_path: /sft/data/TESTSET/TESTSET__金融数据描述评估数据集__0-0-1.jsonl
+    #     judge:
+    #         preprocess: benchmark_code.BizFinBench.eval_financial_description.data_preprocess
+    #         method: gpt-4o
+    #     compare_func:
+    #         path: benchmark_code/BizFinBench/eval_financial_description.py
+    # Financial_Tool_Usage:
+    #     type: text
+    #     data_path: /sft/data/TESTSET/TESTSET__金融工具使用评估测试集__0-0-1.jsonl
+    #     judge:
+    #         preprocess: benchmark_code.BizFinBench.eval_multi_tools_use.data_preprocess
+    #         method: gpt-4o #在此处指明裁判模型使用什么接口即可，支持gpt-4o，deepseek，gemini，claude并支持手动添加
+    #     compare_func:
+    #         path: benchmark_code/BizFinBench/eval_multi_tools_use.py
+    # Financial_Knowledge_QA:
+    #     type: text
+    #     data_path: /sft/data/TESTSET/TESTSET__金融百科知识问答评估数据集__0-0-1.jsonl
+    #     judge:
+    #         preprocess: benchmark_code.BizFinBench.eval_financial_encyclopedia.data_preprocess
+    #         method: gpt-4o
+    #     compare_func:
+    #         path: benchmark_code/BizFinBench/eval_financial_encyclopedia.py
