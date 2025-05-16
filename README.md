@@ -11,7 +11,7 @@
     ·
     <strong>Ji Liu</strong>
   </p>
-  📖<a href="https://arxiv.org/abs/25xx.xxxxx">Paper</a> |🏠<a href="https://hithink-research.github.io/BizFinBench/">Homepage</a></h3>|🤗<a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench">Huggingface</a></h3>
+  📖<a href="https://arxiv.org/abs/25xx.xxxxx">Paper (coming soom)</a> |🏠<a href="https://hithink-research.github.io/BizFinBench/">Homepage</a></h3>|🤗<a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench">Huggingface</a></h3>
 <div align="center"></div>
 <p align="center">
   <p>
