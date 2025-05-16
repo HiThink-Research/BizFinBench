@@ -45,61 +45,90 @@ This dataset contains multiple subtasks, each focusing on a different financial 
 ## 🛠️ Usage
 
 ### Contents
+
 ```
 llm-eval
 ├── README.md
 ├── benchmark_code
-├── config #所有的自定义样例config可以在此文件夹下找到
+├── config # All custom sample configs can be found in this folder
 ├── eval.py
-├── inference #所有的推理引擎相关的代码都在此文件夹下
-├── post_eval.py #推理完成后的评估启动代码
+├── inference # All inference-engine-related code is in this folder
+├── post_eval.py # Evaluation launcher after inference is finished
 ├── reqirements.txt
-├── run.py #整个运行流程的启动入口
-├── run.sh #评估启动的执行文件，仅供参考，需要自己维护自己的run.sh文件
-├── scripts #一些参考的run.sh脚本
-├── statistic.py #统计最终评估结果
+├── run.py # Entry point for the entire evaluation workflow
+├── run.sh # Sample execution script for launching an evaluation; maintain your own run.sh as needed
+├── scripts # Reference run.sh scripts
+├── statistic.py # Aggregates final evaluation statistics
 └── utils
 ```
 
-### Quick Start 评估本地模型（使用HuggingFace model.generate()函数）
-<p>评估新模型的时候无法使用vllm推理时，可以设置backend参数为hf使用model.generate()进行评估</p>
+### Quick Start – Evaluate a Local Model (using the HuggingFace `model.generate()` function)
+
+<p>If vLLM inference cannot be used when evaluating a new model, set the `backend` parameter to `hf` to run the evaluation with `model.generate()`.</p>
 
 ```sh
-export MODEL_PATH=/mnt/data/llm/models/chat/Qwen2.5-0.5B #待评测模型需要将路径放在环境变量中
+export MODEL_PATH=/mnt/data/llm/models/chat/Qwen2.5-0.5B   # Path to the model to be evaluated
 export REMOTE_MODEL_PORT=16668
 export REMOTE_MODEL_URL=http://127.0.0.1:${REMOTE_MODEL_PORT}/model
 export MODEL_NAME=Qwen2.5-0.5B
-export PROMPT_TYPE=chat_template # Hithink llama3 llama2 none qwen chat_template 推荐使用chat_template
+export PROMPT_TYPE=chat_template   # Hithink llama3 llama2 none qwen chat_template; chat_template is recommended
 
-#先将模型启动为服务
-python inference/predict_multi_gpu.py --model ${MODEL_PATH} --server_port ${REMOTE_MODEL_PORT} --prompt ${PROMPT_TYPE} --preprocess preprocess --run_forever --max_new_tokens 4096 --tensor_parallel ${TENSOR_PARALLEL} --backend hf & 
+# First start the model as a service
+python inference/predict_multi_gpu.py \
+    --model ${MODEL_PATH} \
+    --server_port ${REMOTE_MODEL_PORT} \
+    --prompt ${PROMPT_TYPE} \
+    --preprocess preprocess \
+    --run_forever \
+    --max_new_tokens 4096 \
+    --tensor_parallel ${TENSOR_PARALLEL} \
+    --backend hf & 
 
-#传入config文件路径进行评测
+# Pass in the config file path to start evaluation
 python run.py --config config.yaml --model_name ${MODEL_NAME}
 ```
 
-### Quick Start 评估本地模型，使用大模型对评估结果打分
+### Quick Start – Evaluate a Local Model and Score with a Judge Model
 
 ```sh
-export MODEL_PATH=/mnt/data/llm/models/chat/Qwen2.5-0.5B #待评测模型需要将路径放在环境变量中
+export MODEL_PATH=/mnt/data/llm/models/chat/Qwen2.5-0.5B   # Path to the model to be evaluated
 export REMOTE_MODEL_PORT=16668
 export REMOTE_MODEL_URL=http://127.0.0.1:${REMOTE_MODEL_PORT}/model
 export MODEL_NAME=Qwen2.5-0.5B
-export PROMPT_TYPE=chat_template # Hithink llama3 llama2 none qwen chat_template 推荐使用chat_template
+export PROMPT_TYPE=chat_template   # llama3 llama2 none qwen chat_template; chat_template is recommended
 
-#先将模型启动为服务
-python inference/predict_multi_gpu.py --model ${MODEL_PATH} --server_port ${REMOTE_MODEL_PORT} --prompt ${PROMPT_TYPE} --preprocess preprocess --run_forever --max_new_tokens 4096 --tensor_parallel ${TENSOR_PARALLEL} --low_vram & 
+# First start the model as a service
+python inference/predict_multi_gpu.py \
+    --model ${MODEL_PATH} \
+    --server_port ${REMOTE_MODEL_PORT} \
+    --prompt ${PROMPT_TYPE} \
+    --preprocess preprocess \
+    --run_forever \
+    --max_new_tokens 4096 \
+    --tensor_parallel ${TENSOR_PARALLEL} \
+    --low_vram & 
 
-# 启动裁判员模型
+# Start the judge model
 export JUDGE_MODEL_PATH=/mnt/data/llm/models/base/Qwen2.5-7B
 export JUDGE_TENSOR_PARALLEL=1
 export JUDGE_MODEL_PORT=16667
-python inference/predict_multi_gpu.py --model ${JUDGE_MODEL_PATH} --server_port ${JUDGE_MODEL_PORT} --prompt chat_template --preprocess preprocess  --run_forever --manual_start --max_new_tokens 4096 --tensor_parallel ${JUDGE_TENSOR_PARALLEL} --low_vram &
+python inference/predict_multi_gpu.py \
+    --model ${JUDGE_MODEL_PATH} \
+    --server_port ${JUDGE_MODEL_PORT} \
+    --prompt chat_template \
+    --preprocess preprocess \
+    --run_forever \
+    --manual_start \
+    --max_new_tokens 4096 \
+    --tensor_parallel ${JUDGE_TENSOR_PARALLEL} \
+    --low_vram &
 
-# 传入config文件路径进行评测
+# Pass in the config file path to start evaluation
 python run.py --config "config_all_yewu.yaml" --model_name ${MODEL_NAME}
 ```
-注意在启动裁判员模型时增加了`--manual_start`入参，因为裁判员模型需要等待模型推理完成后再启动（由`run.py`中的`maybe_start_judge_model`方法自动触发）。
+
+> **Note**: Add the `--manual_start` argument when launching the judge model, because the judge must wait until the main model finishes inference before starting (this is handled automatically by the `maybe_start_judge_model` function in `run.py`).
+
 
 ## ✒️Citation
 
