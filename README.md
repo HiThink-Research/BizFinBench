@@ -11,7 +11,7 @@
     ·
     <strong>Ji Liu</strong>
   </p>
-  📖<a href="https://arxiv.org/abs/25xx.xxxxx">Paper (coming soom)</a> |🏠<a href="https://hithink-research.github.io/BizFinBench/">Homepage</a></h3>|🤗<a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench">Huggingface</a></h3>
+  📖<a href="https://arxiv.org/abs/25xx.xxxxx">Paper (coming soom)</a> |🏠<a href="https://hithink-research.github.io/BizFinBench/">Homepage (coming soom)</a></h3>|🤗<a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench">Huggingface</a></h3>
 <div align="center"></div>
 <p align="center">
   <p>
@@ -62,9 +62,7 @@ llm-eval
 └── utils
 ```
 
-### Quick Start – Evaluate a Local Model (using the HuggingFace `model.generate()` function)
-
-<p>If vLLM inference cannot be used when evaluating a new model, set the `backend` parameter to `hf` to run the evaluation with `model.generate()`.</p>
+### Quick Start – Evaluate a Local Model
 
 ```sh
 export MODEL_PATH=/mnt/data/llm/models/chat/Qwen2.5-0.5B   # Path to the model to be evaluated
@@ -81,8 +79,7 @@ python inference/predict_multi_gpu.py \
     --preprocess preprocess \
     --run_forever \
     --max_new_tokens 4096 \
-    --tensor_parallel ${TENSOR_PARALLEL} \
-    --backend hf & 
+    --tensor_parallel ${TENSOR_PARALLEL} & 
 
 # Pass in the config file path to start evaluation
 python run.py --config config.yaml --model_name ${MODEL_NAME}
