@@ -17,8 +17,17 @@
   <p>
 In recent years, multimodal benchmarks for general domains have guided the rapid development of multimodal models on general tasks. However, the financial field has its peculiarities. It features unique graphical images (e.g., candlestick charts, technical indicator charts) and possesses a wealth of specialized financial knowledge (e.g., futures, turnover rate).
 
-Large language models excel across general tasks, yet judging their reliability in logic‑heavy, precision‑critical domains such as finance, law and healthcare is still difficult. To address this challenge, we propose **BizFinBench**, the first benchmark grounded in real-world financial applications. BizFinBench consists of 6,781 well-annotated queries in Chinese, covering five dimensions: numerical calculation, reasoning, information extraction, prediction recognition and knowledge‐based question answering, which are mapped to nine fine-grained categories.
+Large language models excel across general tasks, yet judging their reliability in logic‑heavy, precision‑critical domains such as finance, law and healthcare is still difficult. To address this challenge, we propose **BizFinBench**, the first benchmark grounded in real-world financial applications. BizFinBench consists of **6,781** well-annotated queries in Chinese, covering five dimensions: numerical calculation, reasoning, information extraction, prediction recognition and knowledge‐based question answering, which are mapped to nine fine-grained categories.
 
+## 📢 News 
+- 🚀 [16/05/2025] We released <strong>BizFinBench</strong> benchmark (V1), the first benchmark grounded in real-world financial applications.
+
+## 💡 Highlights
+- 🔥  **Benchmark:** We propose **BizFinBench**, the first evaluation benchmark in the financial domain that integrates business-oriented tasks, covering 5 dimensions and 9 categories. It is designed to assess the capacity of LLMs in real-world financial scenarios.
+- 🔥  **Judge model:** We design a novel evaluation method, i.e., **Iterajudge**, which enhances the capability of LLMs as a judge by refining their decision boundaries in specific financial evaluation tasks.
+- 🔥  **key insights:** We conduct a comprehensive evaluation with **25 LLMs** based on BizFinBench, uncovering key insights into their strengths and limitations in financial applications.
+
+## 📕 Data Distrubution
 This dataset contains multiple subtasks, each focusing on a different financial understanding and reasoning ability, as follows:
 
 | Dataset                                | Description                                                  | Evaluation Dimensions                                        | Volume |
@@ -32,15 +41,6 @@ This dataset contains multiple subtasks, each focusing on a different financial 
 | **Emotion_Recognition**                | A financial sentiment recognition dataset evaluating models' ability to discern nuanced user emotions in complex financial market environments. Inputs include multi-dimensional data such as market conditions, news, research reports, user holdings, and queries, covering six emotion categories: optimism, anxiety, pessimism, excitement, calmness, and regret. | Emotion classification accuracy, implicit information extraction and reasoning correctness | 600    |
 | **Financial Tool Usage**               | A financial tool usage dataset evaluating models' ability to understand user queries and appropriately utilize various financial tools (investment analysis, market research, information retrieval, etc.) to solve real-world problems. Tools include calculators, financial encyclopedia queries, search engines, data queries, news queries, economic calendars, and company lookups. Models must accurately interpret user intent, select appropriate tools, input correct parameters, and coordinate multiple tools when necessary. | Tool selection rationality, parameter input accuracy, multi-tool coordination capability | 641    |
 | **Financial Knowledge QA**             | A financial encyclopedia QA dataset assessing models' understanding and response accuracy regarding core financial knowledge, covering key domains: financial fundamentals, markets, investment theories, macroeconomics, etc. | Query comprehension accuracy, knowledge coverage breadth, answer accuracy and professionalism | 990    |
-
-## 📢 News 
-- 🚀 [16/05/2025] We released <strong>BizFinBench</strong> benchmark, the first benchmark grounded in real-world financial applications.
-
-## 💡 Highlights
-- 🔥  **Benchmark:** We propose **BizFinBench**, the first evaluation benchmark in the financial domain that integrates business-oriented tasks, covering 5 dimensions and 9 categories. It is designed to assess the capacity of LLMs in real-world financial scenarios.
-- 🔥  **Judge model:** We design a novel evaluation method, i.e., **Iterajudge**, which enhances the capability of LLMs as a judge by refining their decision boundaries in specific financial evaluation tasks.
-- 🔥  **key insights:** We conduct a comprehensive evaluation with **25 LLMs** based on BizFinBench, uncovering key insights into their strengths and limitations in financial applications.
-
 
 ## 🛠️ Usage
 
