@@ -3,17 +3,25 @@
     <img src="static/logo.png" alt="BizFinBench logo" height="40" style="position:relative; top:6px;">
   BizFinBench: A Business-Driven Real-World Financial Benchmark for Evaluating LLMs</h1>
     <p align="center">
-    <strong>Guilong Lu</strong>
-    ·
-    <strong>Xuntao Guo</strong>
-    ·
-    <strong>Rongjunchen Zhang</strong>
-    ·
-    <strong>Wenqiao Zhu</strong>
-    ·
-    <strong>Ji Liu</strong>
+    <span class="author-block">
+      Guilong Lu<sup>1,*</sup> </a>,</span>
+                <span class="author-block">
+      Xuntao Guo<sup>1,2,*</sup></a>, Rongjunchen Zhang<sup>1,♠</sup>, Wenqiao Zhu<sup>1</sup>,  Ji Liu<sup>1</sup>
+    </span>
+    </div>
+    <div class="is-size-5 publication-authors" style="margin-top: 10px;">
+        <span class="author-block">
+            <sup>1</sup>Hithink Research, <sup>2</sup>Harbin Institute of Technology
+        </span>
+        <br>
+        <span class="author-block">
+            <sup>*</sup>Co-first authors, <sup>♠</sup>Corresponding author, zhangrongjunchen@myhexin.com
+        </span>
+    </div>
   </p>
+  <p>
   📖<a href="https://arxiv.org/abs/25xx.xxxxx">Paper (coming soom)</a> |🏠<a href="https://hithink-research.github.io/BizFinBench/">Homepage (coming soom)</a></h3>|🤗<a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench">Huggingface</a></h3>
+  </p>
 <div align="center"></div>
 <p align="center">
   <p>
@@ -45,6 +53,10 @@ This dataset contains multiple subtasks, each focusing on a different financial 
 | **Emotion_Recognition**                | A financial sentiment recognition dataset evaluating models' ability to discern nuanced user emotions in complex financial market environments. Inputs include multi-dimensional data such as market conditions, news, research reports, user holdings, and queries, covering six emotion categories: optimism, anxiety, pessimism, excitement, calmness, and regret. | Emotion classification accuracy, implicit information extraction and reasoning correctness | 600    |
 | **Financial Tool Usage**               | A financial tool usage dataset evaluating models' ability to understand user queries and appropriately utilize various financial tools (investment analysis, market research, information retrieval, etc.) to solve real-world problems. Tools include calculators, financial encyclopedia queries, search engines, data queries, news queries, economic calendars, and company lookups. Models must accurately interpret user intent, select appropriate tools, input correct parameters, and coordinate multiple tools when necessary. | Tool selection rationality, parameter input accuracy, multi-tool coordination capability | 641    |
 | **Financial Knowledge QA**             | A financial encyclopedia QA dataset assessing models' understanding and response accuracy regarding core financial knowledge, covering key domains: financial fundamentals, markets, investment theories, macroeconomics, etc. | Query comprehension accuracy, knowledge coverage breadth, answer accuracy and professionalism | 990    |
+
+## 📚 Example
+<img src="static/Anomalous Event Attribution.drawio.png" alt="Data Distribution">
+
 
 ## 🛠️ Usage
 
