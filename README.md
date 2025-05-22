@@ -1,5 +1,7 @@
 <p align="center">
-  <h1 align="center">BizFinBench: A Business-Driven Real-World Financial Benchmark for Evaluating LLMs</h1>
+  <h1 align="center">
+    <img src="static/logo.png" alt="BizFinBench logo" height="40" style="position:relative; top:6px;">
+  BizFinBench: A Business-Driven Real-World Financial Benchmark for Evaluating LLMs</h1>
     <p align="center">
     <strong>Guilong Lu</strong>
     ·
@@ -29,6 +31,8 @@ Large language models excel across general tasks, yet judging their reliability 
 
 ## 📕 Data Distrubution
 This dataset contains multiple subtasks, each focusing on a different financial understanding and reasoning ability, as follows:
+
+<img src="static/distribution.png" alt="Data Distribution">
 
 | Dataset                                | Description                                                  | Evaluation Dimensions                                        | Volume |
 | -------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------ |
