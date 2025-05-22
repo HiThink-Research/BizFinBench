@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="BizFinBench: A Business-Driven Real-World Financial Benchmark for Evaluating LLMs">
+    <meta name="keywords" content="Financial Benchmark, Large Language Models, LLM as a judge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BizFinBench</title> 
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+    <link rel="icon" href="./static/images/logo.png">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <link rel="stylesheet" href="./static/css/index-gradio.css">
+    <link rel="stylesheet" href="./static/css/live_theme.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <!-- <script src="./static/js/index.js"></script> -->
+</head>
+<body>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title"
+                        style="display: flex;flex-direction: row;align-items: center;justify-content: center;margin-bottom: 5px;"><img
+                            src="./static/images/logo.png" width="60" height="60" style="margin-right: 10px;">BizFinBench:</h1>
+                    <h1 class="title is-2 publication-title">A Business-Driven Real-World Financial Benchmark for Evaluating LLMs</h1>
+                    <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Guilong Lu<sup>1,*</sup> </a>,</span>
+                        <span class="author-block">
+              Xuntao Guo<sup>1,2,*</sup></a>, Rongjunchen Zhang<sup>1,♠</sup>, Wenqiao Zhu<sup>1</sup>,  Ji Liu<sup>1</sup>
+            </span>
+                    </div>
+                    <div class="is-size-5 publication-authors" style="margin-top: 10px;">
+                        <span class="author-block">
+                            <sup>1</sup>Hithink Research, <sup>2</sup>Harbin Institute of Technology
+                        </span>
+                        <br>
+                        <span class="author-block">
+                            <sup>*</sup>Co-first authors, <sup>♠</sup>Corresponding author, zhangrongjunchen@myhexin.com
+                        </span>
+                    </div>
+
+    </div>
+</section>
+
+<div class="column has-text-centered">
+    <div class="publication-links">
+      <!-- PDF Link. -->
+      <span class="link-block"> <a href="https://arxiv.org/abs/xxx"
+           class="external-link button is-normal is-rounded is-dark"> <span class="icon"> <i class="ai ai-arxiv"></i> </span> <span>arXiv</span> </a> </span>
+      <!-- Code Link. -->
+      <span class="link-block"> <a href="https://github.com/HiThink-Research/BizFinBench/tree/main"
+           class="external-link button is-normal is-rounded is-dark"> <span class="icon"> <i class="fab fa-github"></i> </span> <span>Code</span> </a> </span>
+      <!-- HuggingFace Link. -->
+      <span class="link-block"> <a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench"
+           class="external-link button is-normal is-rounded is-dark"><span class="icon">🤗</span><span>Space</span> </a></span>
+    </div>
+      </div>
+
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-2">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Large language models excel in general tasks, yet assessing their reliability in logic‑heavy, precision‑critical domains like finance, law, and healthcare remains challenging. To address this, we introduce BizFinBench, the first benchmark specifically designed to evaluate LLMs in real-world financial applications. BizFinBench consists of 6,781 well-annotated queries in Chinese, spanning five dimensions: numerical calculation, reasoning, information extraction, prediction recognition, and knowledge-based question answering, grouped into nine fine-grained categories. The benchmark includes both objective and subjective metrics. We also introduce Iterajudge, a novel LLM evaluation method that reduces bias when LLMs serve as evaluators in objective metrics. We benchmark 25 models, including both proprietary and open-source systems. Extensive experiments show that no model dominates across all tasks. Our evaluation reveals distinct capability patterns: (1) In Numerical Calculation, Claude-3.5-Sonnet (63.18) and DeepSeek-R1 (64.04) lead, while smaller models like Qwen2.5-VL-3B (15.92) lag significantly; (2) In Reasoning, proprietary models dominate (ChatGPT-o3: 83.58, Gemini-2.0-Flash: 81.15), with open-source models trailing by up to 19.49 points; (3) In Information Extraction, the performance spread is the largest, with DeepSeek-R1 scoring 71.46, while Qwen3-1.7B scores 11.23; (4) In Prediction Recognition, performance variance is minimal, with top models scoring between 39.16 and 50.00. We find that while current LLMs handle routine finance queries competently, they struggle with complex scenarios requiring cross-concept reasoning. BizFinBench offers a rigorous, business-aligned benchmark for future research. The code and dataset are available at https://github.com/HiThink-Research/BizFinBench.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--/ Abstract. -->
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <h2 class="title is-2">Overview</h2>
+            <br>
+        </div>
+        <!-- Architecture -->
+        <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h4 class="title is-3">• Data Collection </h4>
+                <div class="content has-text-justified">
+                    <p>
+                        This is the data collection pipeline of BizFinBench. 
+                        We construct our dataset from real user queries on the iWenCai platform, covering common financial tasks such as time reasoning, numerical computation, and sentiment analysis. Queries are cleaned and categorized using GPT-4o, with underrepresented types augmented for balance. Relevant financial context is retrieved based on the query timestamp, and carefully selected distractors are added to test reasoning ability. All data points are reviewed and validated by senior financial experts to ensure high quality and real-world applicability.
+
+                    </p>
+                    <img class="columns is-centered has-text-centered" src="./static/images/datasetpip1.drawio.png" alt="Teaser" width="95%"
+                         style="margin:0 auto">
+                    <br>
+                    <figcaption>
+                        <p style="text-align: center; color: #1d3f9c;">
+                        </p>
+                    </figcaption>
+                </div>
+                <h4 class="title is-3">• Evaluation Method </h4>
+                    <div class="content has-text-justified">
+                        <p>
+                            This is the evaluation pipeline on IteraJudge. 
+                            The framework employs a three-phase pipeline for dimension-decoupled assessment. 
+                            Starting with an input question and an initial model-generated answer, the framework iteratively refines the answer across a set of predefined evaluation dimensions using a large language model (LLM) with tailored prompts for each dimension. This process generates a sequence of progressively improved answers, providing an interpretable improvement trajectory. The final refined answer serves as an automatically generated quality benchmark. A judge model then evaluates the original answer by comparing it with the refined benchmark in a contrastive manner, assigning a score that highlights dimensional deficiencies based on their differences. This iterative refinement approach enables detailed diagnosis while maintaining contextual consistency throughout the process. 
+                        </p>
+                    <img class="columns is-centered has-text-centered" src="./static/images/infer_eval.png" alt="Teaser" width="95%"
+                        style="margin:0 auto">
+                    <br>
+                    <figcaption>
+                        <p style="text-align: center; color: #061E61;">
+                        </p>
+                    </figcaption>
+                    </div>
+                <h4 class="title is-3">• Statistics </h4>
+                    <div class="content has-text-justified">
+                        <img class="columns is-centered has-text-centered" src="./static/images/distribution.png" alt="Teaser" width="95%"
+                        style="margin:0 auto">
+                        <br>
+                        <br>
+                        <p>
+                            This is the statistics results of BizFinBench. 
+                            BizFinBench consists of a total of 6,781 entries, encompassing a wide variety of tasks designed to assess model performance across diverse financial challenges. 
+                            By testing models on these tasks, we aim to evaluate not only their individual capabilities but also their ability to generalize across multiple facets of financial data analysis.
+                            The table below provides a detailed breakdown of the dataset, including the evaluation dimensions, corresponding metrics, the number of instances per task, and the average token length per entry.
+                            The dataset exhibits significant variability in input length, ranging from just 22 tokens to as many as 4,556 tokens. 
+                            This broad range reflects the complexity and heterogeneity of real-world financial scenarios and presents a meaningful challenge for models to demonstrate their ability to process both short and long financial texts effectively.
+                        </p>
+                    
+                    <img class="columns is-centered has-text-centered" src="./static/images/statistics.png" alt="Teaser" width="95%"
+                         style="margin:0 auto">
+                    <br>
+                    <figcaption>
+                        <p style="text-align: center; color: #061E61;">
+                        </p>
+                    </figcaption>
+                    </div>
+            </div>
+        </div>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <h2 class="title is-2">Results on BizFinBench</h2>
+            <br>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-full-width"> 
+                <div class="content has-text-justified">
+                    <p>
+                        Our evaluation on the BizFinBench benchmark reveals distinct capabilities of LLMs in the financial domain. The table below shows all results. In the AEA task, Gemini-2.0-Flash achieves SOTA performance with a score of 86.94, closely followed by ChatGPT-o3 (86.23) and ChatGPT-o4-mini (85.62), demonstrating the strong and consistent performance of closed-source models in complex financial understanding. Moreover, proprietary models dominate knowledge-intensive tasks—exemplified by the leading performance of GPT-4o in FDD with a score of 98.84 and the leadership of ChatGPT-o3 in FTU with 89.15. However, open-source models like DeepSeek-V3 (671B) show impressive competitiveness, particularly surpassing GPT-4o (65.37) in FNER with a score of 71.46.
+                    </p>
+                    <img class="columns is-centered has-text-centered" src="./static/images/results.png" alt="Teaser" width="95%"
+                         style="margin:0 auto">
+                    <br>
+
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <h2 class="title is-2">Demonstrations</h2>
+            <br>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-full-width"> 
+                <h3 class="title is-4">• Anomalous Event Attribution</h3>
+                    <div class="content has-text-justified">
+                    <img class="columns is-centered has-text-centered" src="./static/images/Anomalous Event Attribution.drawio.png" alt="Teaser" width="95%"
+                         style="margin:0 auto">
+                    <br>
+                    </div>
+                <h3 class="title is-4">• Emotion Recognition</h3>
+                    <div class="content has-text-justified">
+                    <img class="columns is-centered has-text-centered" src="./static/images/Emotional Value Test.drawio.png" alt="Teaser" width="95%"
+                         style="margin:0 auto">
+                    <br>
+                    </div>
+                    </div>
+</section>
+
+
+</section>
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 mathvista_other" id="citation">Citation</h1>
+  </div>
+</section>
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <pre><code>
+        comming soon
+</code></pre>
+  </div>
+</section>
