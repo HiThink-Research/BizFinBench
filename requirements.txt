@@ -12,7 +12,7 @@ regex==2024.4.16
 nltk==3.8.1
 sqlparse==0.5.1
 json_repair==0.39.1
-vllm==0.8.3
+vllm>=0.8.5
 transformers==4.51.0
 word2number
 latex2sympy2
