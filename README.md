@@ -78,6 +78,10 @@ llm-eval
 └── utils
 ```
 
+### Install requirements
+```sh
+pip install -r requirements.txt
+```
 ### Quick Start – Evaluate a Local Model
 
 ```sh
