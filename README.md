@@ -6,7 +6,7 @@
     <span class="author-block">
       Guilong Lu<sup>1,*</sup> </a>,</span>
                 <span class="author-block">
-      Xuntao Guo<sup>1,2,*</sup></a>, Rongjunchen Zhang<sup>1,♠</sup>, Wenqiao Zhu<sup>1</sup>,  Ji Liu<sup>1</sup>
+      Xuntao Guo<sup>1,2,*</sup></a>, Rongjunchen Zhang<sup>1,♠</sup>, Wenqiao Zhu<sup>1</sup>,  Ji Liu<sup>1,♠</sup>
     </span>
     </div>
     <div class="is-size-5 publication-authors" style="margin-top: 10px;">
@@ -15,7 +15,7 @@
         </span>
         <br>
         <span class="author-block">
-            <sup>*</sup>Co-first authors, <sup>♠</sup>Corresponding author, zhangrongjunchen@myhexin.com
+            <sup>*</sup>Co-first authors, <sup>♠</sup>Corresponding author, {zhangrongjunchen, liuji}@myhexin.com
         </span>
     </div>
   </p>
