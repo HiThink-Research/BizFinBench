@@ -32,24 +32,3 @@ tasks:
         data_path: datasets/Stock_Price_Prediction.jsonl
         compare_func:
             path: benchmark_code/BizFinBench/eval_stock_prediction.py
-    Financial_Data_Description:
-        type: text
-        data_path: datasets/Financial_Data_Description.jsonl
-        judge:
-            preprocess: benchmark_code.BizFinBench.eval_financial_description.data_preprocess
-        compare_func:
-            path: benchmark_code/BizFinBench/eval_financial_description.py
-    Financial_Tool_Usage:
-        type: text
-        data_path: datasets/Financial_Tool_Usage.jsonl
-        judge:
-            preprocess: benchmark_code.BizFinBench.eval_multi_tools_use.data_preprocess
-        compare_func:
-            path: benchmark_code/BizFinBench/eval_multi_tools_use.py
-    Financial_Knowledge_QA:
-        type: text
-        data_path: datasets/Financial_Knowledge_QA.jsonl
-        judge:
-            preprocess: benchmark_code.BizFinBench.eval_financial_encyclopedia.data_preprocess
-        compare_func:
-            path: benchmark_code/BizFinBench/eval_financial_encyclopedia.py

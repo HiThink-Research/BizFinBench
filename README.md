@@ -81,7 +81,7 @@ llm-eval
 ### Quick Start – Evaluate a Local Model
 
 ```sh
-export MODEL_PATH=/mnt/data/llm/models/chat/Qwen2.5-0.5B   # Path to the model to be evaluated
+export MODEL_PATH=model/Qwen2.5-0.5B   # Path to the model to be evaluated
 export REMOTE_MODEL_PORT=16668
 export REMOTE_MODEL_URL=http://127.0.0.1:${REMOTE_MODEL_PORT}/model
 export MODEL_NAME=Qwen2.5-0.5B
@@ -98,13 +98,13 @@ python inference/predict_multi_gpu.py \
     --tensor_parallel ${TENSOR_PARALLEL} & 
 
 # Pass in the config file path to start evaluation
-python run.py --config config.yaml --model_name ${MODEL_NAME}
+python run.py --config config/offical/eval_fin_eval_diamond.yaml --model_name ${MODEL_NAME}
 ```
 
 ### Quick Start – Evaluate a Local Model and Score with a Judge Model
 
 ```sh
-export MODEL_PATH=/mnt/data/llm/models/chat/Qwen2.5-0.5B   # Path to the model to be evaluated
+export MODEL_PATH=model/Qwen2.5-0.5B   # Path to the model to be evaluated
 export REMOTE_MODEL_PORT=16668
 export REMOTE_MODEL_URL=http://127.0.0.1:${REMOTE_MODEL_PORT}/model
 export MODEL_NAME=Qwen2.5-0.5B
@@ -137,7 +137,7 @@ python inference/predict_multi_gpu.py \
     --low_vram &
 
 # Pass in the config file path to start evaluation
-python run.py --config "config_all_yewu.yaml" --model_name ${MODEL_NAME}
+python run.py --config "config/offical/eval_fin_eval.yaml" --model_name ${MODEL_NAME}
 ```
 
 > **Note**: Add the `--manual_start` argument when launching the judge model, because the judge must wait until the main model finishes inference before starting (this is handled automatically by the `maybe_start_judge_model` function in `run.py`).

@@ -12,7 +12,6 @@ import json
 from tqdm import tqdm
 from loguru import logger
 from statistic import statistic
-import pdb
 
 cur_path = os.path.dirname(os.path.abspath(__file__))
 
