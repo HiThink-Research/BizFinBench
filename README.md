@@ -27,10 +27,10 @@
   <p>
 In recent years, multimodal benchmarks for general domains have guided the rapid development of multimodal models on general tasks. However, the financial field has its peculiarities. It features unique graphical images (e.g., candlestick charts, technical indicator charts) and possesses a wealth of specialized financial knowledge (e.g., futures, turnover rate).
 
-Large language models excel across general tasks, yet judging their reliability in logic‑heavy, precision‑critical domains such as finance, law and healthcare is still difficult. To address this challenge, we propose **BizFinBench**, the first benchmark grounded in real-world financial applications. BizFinBench consists of **6,781** well-annotated queries in Chinese, covering five dimensions: numerical calculation, reasoning, information extraction, prediction recognition and knowledge‐based question answering, which are mapped to nine fine-grained categories.
+Large language models excel across general tasks, yet judging their reliability in logic‑heavy, precision‑critical domains such as finance, law and healthcare is still difficult. To address this challenge, we propose **BizFinBench**, the first benchmark grounded in real-world financial applications. **BizFinBench** comprises over 100,000+ bilingual (English & Chinese) financial questions, each rooted in real-world business scenarios. The first public release, **BizFinBench.v1**, delivers 6,781 well annotated Chinese queries, covering five dimensions: numerical calculation, reasoning, information extraction, prediction recognition and knowledge‐based question answering, which are mapped to nine fine-grained categories.
 
 ## 📢 News 
-- 🚀 [16/05/2025] We released <strong>BizFinBench</strong> benchmark (V1), the first benchmark grounded in real-world financial applications.
+- 🚀 [16/05/2025] We released <strong>BizFinBench.v1</strong> benchmark, the first benchmark grounded in real-world financial applications.
 
 ## 💡 Highlights
 - 🔥  **Benchmark:** We propose **BizFinBench**, the first evaluation benchmark in the financial domain that integrates business-oriented tasks, covering 5 dimensions and 9 categories. It is designed to assess the capacity of LLMs in real-world financial scenarios.
@@ -187,7 +187,14 @@ The models are evaluated across multiple tasks, with results color-coded to repr
 
 ## ✒️Citation
 
-comming soon
+```
+@article{lu2025bizfinbench,
+  title={BizFinBench: A Business-Driven Real-World Financial Benchmark for Evaluating LLMs},
+  author={Lu, Guilong and Guo, Xuntao and Zhang, Rongjunchen and Zhu, Wenqiao and Liu, Ji},
+  journal={arXiv preprint arXiv:2505.19457},
+  year={2025}
+}
+```
 
 ## 📄 License
 ![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg) ![Data License](https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg) **Usage and License Notices**: The data and code are intended and licensed for research use only.
