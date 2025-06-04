@@ -16,7 +16,7 @@ tasks:
         type: text
         data_path: datasets/Financial_Named_Entity_Recognition.jsonl
         compare_func:
-            path: benchmark_code/BizFinBench/eval_financial_timereason.py
+            path: benchmark_code/BizFinBench/eval_fin_ner.py
     Financial_Numerical_Computation:
         type: text
         data_path: datasets/Financial_Numerical_Computation.jsonl
