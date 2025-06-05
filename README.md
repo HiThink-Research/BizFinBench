@@ -201,3 +201,6 @@ License: Attribution-NonCommercial 4.0 International It should abide by the poli
 ## 💖 Acknowledgement
 * We would like to thank [Weijie Zhang](https://github.com/zhangwj618) for his contribution to the development of the inference engine.
 * This work leverages [vLLM](https://github.com/vllm-project/vllm) as the backend model server for evaluation purposes.
+
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=HiThink-Research/BizFinBench&type=Date)](https://www.star-history.com/#HiThink-Research/BizFinBench&Date)
