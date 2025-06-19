@@ -53,7 +53,10 @@ def evaluation(input_path, **kwargs):
             except json.JSONDecodeError:
                 pred_entities = []
             def entity_to_tuple(entity):
-                return (entity.get('type', ''), entity.get('text', ''))
+                if isinstance(entity, dict):
+                    return (entity.get('type', ''), entity.get('text', ''))
+                else:
+                    return ('', '')  
             std_entity_counter = Counter(entity_to_tuple(entity) for entity in standard_answers)
             pred_entity_counter = Counter(entity_to_tuple(entity) for entity in pred_entities)
             hits = []
