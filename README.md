@@ -148,7 +148,7 @@ python run.py --config "config/offical/eval_fin_eval.yaml" --model_name ${MODEL_
 
 > **Note**: Add the `--manual_start` argument when launching the judge model, because the judge must wait until the main model finishes inference before starting (this is handled automatically by the `maybe_start_judge_model` function in `run.py`).
 
-### Quick Start – Evaluate a external apis (e.g., chatgpt)
+### Quick Start – Evaluate external apis (e.g., chatgpt)
 
 ```sh
 export API_NAME=chatgpt # The api name, current support chatgpt
