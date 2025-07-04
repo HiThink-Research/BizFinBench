@@ -179,10 +179,10 @@ async def run_task_inference(config, task):
     """
     input_path = config['tasks'][task]['data_path']
     #获取envs检测是否有external api
-    external_api = os.environ.get('EXTERNAL_API')
+    external_api = os.environ.get('API_NAME')
     
     if external_api:
-        logger.info("Using external api:{} to predict".format(external_api))
+        logger.info("Using external api: {} to predict".format(external_api))
         from envs.constants import ExternalApi
         external_api = ExternalApi[external_api]
         await wait_for_external_api(config,task, external_api,input_path)

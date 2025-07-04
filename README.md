@@ -28,7 +28,10 @@
 Large language models excel across general tasks, yet judging their reliability in logic‑heavy, precision‑critical domains such as finance, law and healthcare is still difficult. To address this challenge, we propose **BizFinBench**, the first benchmark grounded in real-world financial applications. **BizFinBench** comprises over 100,000+ bilingual (English & Chinese) financial questions, each rooted in real-world business scenarios. The first public release, **BizFinBench.v1**, delivers 6,781 well annotated Chinese queries, covering five dimensions: numerical calculation, reasoning, information extraction, prediction recognition and knowledge‐based question answering, which are mapped to nine fine-grained categories.
 
 ## 📢 News 
+- 🚀 [04/07/2025] External API support is now live—evaluate BizFinBench with your own endpoints in just a few calls.
+
 - 🚀 [16/05/2025] We released <strong>BizFinBench.v1</strong> benchmark, the first benchmark grounded in real-world financial applications.
+
 
 ## 💡 Highlights
 - 🔥  **Benchmark:** We propose **BizFinBench**, the first evaluation benchmark in the financial domain that integrates business-oriented tasks, covering 5 dimensions and 9 categories. It is designed to assess the capacity of LLMs in real-world financial scenarios.
@@ -65,13 +68,14 @@ llm-eval
 ├── README.md
 ├── benchmark_code
 ├── config # All custom sample configs can be found in this folder
-├── eval.py
+├── envs  #env settings
 ├── inference # All inference-engine-related code is in this folder
 ├── post_eval.py # Evaluation launcher after inference is finished
 ├── reqirements.txt
 ├── run.py # Entry point for the entire evaluation workflow
 ├── run.sh # Sample execution script for launching an evaluation; maintain your own run.sh as needed
 ├── scripts # Reference run.sh scripts
+├── tools # tools
 ├── statistic.py # Aggregates final evaluation statistics
 └── utils
 ```
@@ -144,6 +148,17 @@ python run.py --config "config/offical/eval_fin_eval.yaml" --model_name ${MODEL_
 
 > **Note**: Add the `--manual_start` argument when launching the judge model, because the judge must wait until the main model finishes inference before starting (this is handled automatically by the `maybe_start_judge_model` function in `run.py`).
 
+### Quick Start – Evaluate a external apis (e.g., chatgpt)
+
+```sh
+export API_NAME=chatgpt # The api name, current support chatgpt
+export API_KEY=xxx # Your api key
+export MODEL_NAME=gpt-4.1
+
+# Pass in the config file path to start evaluation
+python run.py --config config/offical/eval_fin_eval_diamond.yaml --model_name ${MODEL_NAME}
+```
+> **Note**: You can adjust the API’s queries-per-second limit by modifying the semaphore_limit setting in envs/constants.py. e.g., GPTClient(api_name=api_name,api_key=api_key,model_name=model_name,base_url='https://api.openai.com/v1/chat/completions', timeout=600, semaphore_limit=5)
 
 ## ✒️Results
 The models are evaluated across multiple tasks, with results color-coded to represent the top three performers for each task:
@@ -202,5 +217,3 @@ License: Attribution-NonCommercial 4.0 International It should abide by the poli
 * We would like to thank [Weijie Zhang](https://github.com/zhangwj618) for his contribution to the development of the inference engine.
 * This work leverages [vLLM](https://github.com/vllm-project/vllm) as the backend model server for evaluation purposes.
 
-## Star History
-[![Star History Chart](https://api.star-history.com/svg?repos=HiThink-Research/BizFinBench&type=Date)](https://www.star-history.com/#HiThink-Research/BizFinBench&Date)

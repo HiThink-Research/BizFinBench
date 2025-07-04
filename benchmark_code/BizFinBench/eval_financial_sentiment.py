@@ -21,12 +21,11 @@ def evaluate_single_data(d):
         else:
             raise ValueError('未匹配到有效的预测结果')
 
-        
         answer = json.loads(d["choices"][0]["message"]["content"][0]["text"])
 
         d["eval_result"] = {"result": "True"} if set(result) == set(answer) else {"result": "False"}
     except Exception as e:
-        d["eval_result"] =  {"result": "True"}
+        d["eval_result"] =  {"result": "False"}
         print(f"Error processing data: {e}")
     return d
 

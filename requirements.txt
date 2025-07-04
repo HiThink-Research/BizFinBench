@@ -16,3 +16,8 @@ vllm>=0.8.5
 transformers==4.51.0
 word2number
 latex2sympy2
+Pillow
+aiohttp
+pandas
+pyyaml
+chardet
