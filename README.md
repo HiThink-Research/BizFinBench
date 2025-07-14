@@ -151,7 +151,7 @@ python run.py --config "config/offical/eval_fin_eval.yaml" --model_name ${MODEL_
 ### Quick Start – Evaluate external apis (e.g., chatgpt)
 
 ```sh
-export API_NAME=chatgpt # The api name, current support chatgpt
+export API_NAME=chatgpt # The api name, currently support chatgpt
 export API_KEY=xxx # Your api key
 export MODEL_NAME=gpt-4.1
 
