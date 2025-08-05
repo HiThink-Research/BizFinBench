@@ -1,7 +1,7 @@
 import json
 import re
 from datetime import datetime
-from utils import JsonPaser
+
 
 def evaluation(input_path, **kwargs):
     corrects = []
@@ -26,11 +26,8 @@ def evaluation(input_path, **kwargs):
 
             predict_result_raw = d.get("predict_result", "")
             predicted_answer = ""
-            j_paser = JsonPaser()
-            predict_data = j_paser.extract_json_from_text(predict_result_raw)
-            
-            if predict_data:
-                predicted_answer = predict_data['answer']
+            matches = re.findall(r'"answer":\s*"?([0-9.\/\-年月日是否]+)', predict_result_raw)
+            predicted_answer = matches[-1] if matches else ''
 
             def parse_date(date_str):
                 if not isinstance(date_str, str):
@@ -54,7 +51,10 @@ def evaluation(input_path, **kwargs):
             if correct_date and predicted_date:
                 score = 1.0 if correct_date == predicted_date else 0
             else:
-                score = 1.0 if str(correct_answer).strip() == str(predicted_answer).strip() else 0
+                try:
+                    score = 1.0 if float(correct_answer) == float(predicted_answer) else 0
+                except (TypeError, ValueError):
+                    score = 1.0 if str(correct_answer).strip() == str(predicted_answer).strip() else 0
 
             d['eval_result'] = {"result": "True" if score == 1 else "False"}
             d['score'] = score

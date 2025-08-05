@@ -1,6 +1,6 @@
 import json
 import re
-from utils import JsonPaser
+
 
 def evaluation(input_path, **kwargs):
     corrects = []
@@ -23,17 +23,8 @@ def evaluation(input_path, **kwargs):
                     correct_answer = content    
             
             predict_result_str = d.get("predict_result", "")
-
-            j_paser = JsonPaser()
-            
-            predict_data = j_paser.extract_json_from_text(predict_result_str)
-            # import pdb;pdb.set_trace()
-            
-            if predict_data:
-                predicted_answer = predict_data.get("涨跌情况", "")
-            else:
-                predicted_answer = ""
-
+            matches = re.findall(r'"涨跌情况":\s*"([涨跌])"', predict_result_str)
+            predicted_answer = matches[-1] if matches else ''
             score = 1.0 if str(correct_answer).strip() == str(predicted_answer).strip() else 0
 
             d['eval_result'] = {

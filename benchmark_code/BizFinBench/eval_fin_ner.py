@@ -2,7 +2,7 @@ import json
 import os
 from collections import Counter
 import re
-from utils import JsonPaser
+
 
 def evaluation(input_path, **kwargs):
     """
@@ -46,10 +46,9 @@ def evaluation(input_path, **kwargs):
                             continue
             
             pred_entities = []
-            j_paser = JsonPaser()
             try:
-                pred_json = j_paser.extract_json_from_text(prediction)
-                pred_entities = pred_json.get('results', []) if pred_json else []
+                matches = re.findall(r'"results":\s*"?(\[.*?\])', prediction, re.DOTALL)
+                pred_entities = json.loads(matches[-1]) if matches else []
             except json.JSONDecodeError:
                 pred_entities = []
             def entity_to_tuple(entity):
