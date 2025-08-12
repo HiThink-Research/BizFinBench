@@ -25,27 +25,9 @@ def evaluation(input_path, **kwargs):
                     correct_answer = correct_answer[0].get("text", "") if correct_answer else ""
 
             predict_result = d.get("predict_result", "")
-
-            predict_result = re.sub(r'[\x00-\x1F\x7F]', '', predict_result)
-
             predicted_answer = None
-            try:
-                predict_data = json.loads(predict_result)
-                predicted_answer = predict_data.get("answer", "")
-            except json.JSONDecodeError:
-                try:
-                    json_pattern = r'"answer"\s*:\s*([^,}\s]+)'
-                    match = re.search(json_pattern, predict_result)
-                    if match:
-                        predicted_answer_str = match.group(1)
-
-                        if predicted_answer_str.startswith('"') and predicted_answer_str.endswith('"'):
-                            predicted_answer = predicted_answer_str[1:-1]
-                        else:
-                            predicted_answer = predicted_answer_str
-                except Exception as e:
-                    print(f"Error extracting answer with regex: {e}")
-
+            matches = re.findall(r'"answer":\s*"?([\-0-9.年月日]+)', predict_result)
+            predicted_answer = matches[-1] if matches else None
             try:
                 if predicted_answer is not None:
                     predicted_answer = float(predicted_answer)
@@ -57,7 +39,12 @@ def evaluation(input_path, **kwargs):
                 else:
                     score = 0
             except (ValueError, TypeError):
-                score = 1.0 if str(predicted_answer).strip() == str(correct_answer).strip() else 0
+                try:
+                    p = re.match(r'([0-9]+)年([0-9]+)月([0-9]+)日', str(predicted_answer).strip())
+                    t = re.match(r'([0-9]+)年([0-9]+)月([0-9]+)日', str(correct_answer).strip())
+                    score = 1.0 if all(p.group(i + 1).lstrip('0') == t.group(i + 1).lstrip('0') for i in range(3)) else 0
+                except (AttributeError, ValueError):
+                    score = 1.0 if str(predicted_answer).strip() == str(correct_answer).strip() else 0
 
             d['eval_result'] = {
                 "result": "True" if score == 1 else "False",

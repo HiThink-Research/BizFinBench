@@ -13,14 +13,8 @@ def evaluate_single_data(d):
     """
     j_paser = JsonPaser()
     try:
-        predict_result = j_paser.extract_json_from_text(d["predict_result"])
-        if isinstance(predict_result,list):
-            result = predict_result
-        elif isinstance(predict_result,dict):
-            result = predict_result['result']
-        else:
-            raise ValueError('未匹配到有效的预测结果')
-
+        matches = re.findall(r'"result":\s*"?(\[.*?\])', d["predict_result"])
+        result = json.loads(matches[-1]) if matches else []
         answer = json.loads(d["choices"][0]["message"]["content"][0]["text"])
 
         d["eval_result"] = {"result": "True"} if set(result) == set(answer) else {"result": "False"}
