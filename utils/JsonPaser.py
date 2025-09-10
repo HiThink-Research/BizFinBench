@@ -31,7 +31,6 @@ class JsonPaser:
         
         for cand in uniq:
             fixed = self._light_fix(cand)
-            print(json.loads(fixed))
             try:
                 return json.loads(fixed)
             except json.JSONDecodeError:

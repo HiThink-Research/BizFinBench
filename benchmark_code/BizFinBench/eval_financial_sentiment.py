@@ -2,6 +2,7 @@ import json
 import re
 import numpy as np
 from utils import JsonPaser
+import traceback
 
 def evaluate_single_data(d):
     """
@@ -13,14 +14,14 @@ def evaluate_single_data(d):
     """
     j_paser = JsonPaser()
     try:
-        matches = re.findall(r'"result":\s*"?(\[.*?\])', d["predict_result"])
-        result = json.loads(matches[-1]) if matches else []
+        # matches = re.findall(r'"result":\s*"?(\[.*?\])', d["predict_result"])
+        result = predict_data = j_paser.extract_json_from_text(d["predict_result"]).get('result',[])
         answer = json.loads(d["choices"][0]["message"]["content"][0]["text"])
-
         d["eval_result"] = {"result": "True"} if set(result) == set(answer) else {"result": "False"}
     except Exception as e:
         d["eval_result"] =  {"result": "False"}
         print(f"Error processing data: {e}")
+        traceback.print_exc()
     return d
 
 def evaluation(input_path, **kwargs):
