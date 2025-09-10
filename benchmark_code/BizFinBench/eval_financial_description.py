@@ -45,7 +45,7 @@ def data_preprocess(input_path, input_file, save_dir='step1'):
     template_copy = copy.deepcopy(template)
     for i, line_info in enumerate(data):
         predict_result = line_info["predict_result"]
-        question = line_info["query"]
+        question = line_info["messages"][0]["content"][0]["text"]
         inst = prompt.replace("{question}",question).replace("{predict_result}",predict_result)
         template_copy = copy.deepcopy(template)
         template_copy["query"] = inst

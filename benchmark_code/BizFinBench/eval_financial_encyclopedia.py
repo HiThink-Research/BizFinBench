@@ -96,7 +96,7 @@ question：{question}
     data = [json.loads(i) for i in open(os.path.join(input_path, input_file), encoding='utf8')]
     for id, line_info in enumerate(data):
         predict_result = line_info["predict_result"]
-        question = line_info["query"]
+        question = line_info["messages"][0]["content"][0]["text"]
         inst = prompt.replace("{question}",question).replace("{predict_result}",predict_result)
         with open(out_file, 'a', encoding='utf8') as fw:
             json.dump({'instruction': inst,'question':question,'model_predict':predict_result}, fw, ensure_ascii=False)

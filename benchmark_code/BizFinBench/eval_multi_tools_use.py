@@ -528,7 +528,7 @@ def data_preprocess(input_path, input_file, save_dir='step1'):
     data = [json.loads(line) for line in open(os.path.join(input_path, input_file), encoding='utf8')]
     out = []
     for d in data:
-        text = d['query']
+        text = d["messages"][0]["content"][0]["text"]
         start_marker = "下面是用户的输入和历史对话信息："
         end_marker = "请按照输出格式要求，输出你的Thought和Actions!"
         start_index_1 = text.find(start_marker) + len(start_marker)
