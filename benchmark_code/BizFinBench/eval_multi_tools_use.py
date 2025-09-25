@@ -528,7 +528,7 @@ def data_preprocess(input_path, input_file, save_dir='step1'):
     data = [json.loads(line) for line in open(os.path.join(input_path, input_file), encoding='utf8')]
     out = []
     for d in data:
-        text = d["messages"][0]["content"][0]["text"]
+        text = d["messages"][0]["content"][0]["text"] if isinstance(d["messages"][0]["content"],list) else d["messages"][0]["content"]
         start_marker = "下面是用户的输入和历史对话信息："
         end_marker = "请按照输出格式要求，输出你的Thought和Actions!"
         start_index_1 = text.find(start_marker) + len(start_marker)
@@ -588,5 +588,5 @@ def evaluation(input_path, **kwargs):
     with open(input_path, 'w', encoding='utf8') as f:
         for o in out:
             f.write(json.dumps(o, ensure_ascii=False) + '\n')
-    acc = score_sum / len(data) if len(data) != 0 else 0
+    acc = score_sum / len(data) / 100 if len(data) != 0 else 0
     return {'acc':acc}
