@@ -45,7 +45,7 @@ def data_preprocess(input_path, input_file, save_dir='step1'):
     template_copy = copy.deepcopy(template)
     for i, line_info in enumerate(data):
         predict_result = line_info["predict_result"]
-        question = line_info["messages"][0]["content"][0]["text"]
+        question = line_info["messages"][0]["content"][0]["text"] if isinstance(line_info["messages"][0]["content"],list) else line_info["messages"][0]["content"]
         inst = prompt.replace("{question}",question).replace("{predict_result}",predict_result)
         template_copy = copy.deepcopy(template)
         template_copy["query"] = inst
@@ -65,16 +65,12 @@ def evaluation(input_path, **kwargs):
         for line in f.readlines():
             l = json.loads(line)
             predict_result = l["predict_result"]
-            pattern = r'```json\s*({.*?})\s*```'
-            matches = re.findall(pattern, predict_result, re.DOTALL)
-
-            if matches:
-                eval_result_str = matches[0]
-            else:
-                eval_result_str = predict_result.split("\n\n")[0].strip()
+            from utils import JsonPaser
+            j_paser = JsonPaser()
+            eval_result_str = j_paser.extract_json_from_text(predict_result)
 
             try:
-                eval_result = json.loads(eval_result_str)
+                eval_result = eval_result_str
                 l["eval_result"] = eval_result
                 num += 1
                 sum_score += int(eval_result["评分分数"]) 
