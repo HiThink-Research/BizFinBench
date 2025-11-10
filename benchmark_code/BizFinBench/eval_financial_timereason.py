@@ -2,6 +2,16 @@ import json
 import re
 from datetime import datetime
 
+def compute_match_ss_score(correct_answer, predicted_answer):
+    score = 0.0
+    if str(predicted_answer).strip().lower() == 'true':
+        predicted_answer = '是'
+    elif str(predicted_answer).strip().lower() == 'false':
+        predicted_answer = '否'
+
+    if str(correct_answer).strip() == str(predicted_answer).strip():
+        score = 1.0
+    return score
 
 def evaluation(input_path, **kwargs):
     corrects = []
@@ -26,7 +36,10 @@ def evaluation(input_path, **kwargs):
 
             predict_result_raw = d.get("predict_result", "")
             predicted_answer = ""
-            matches = re.findall(r'"answer":\s*"?([0-9.\/\-年月日是否]+)', predict_result_raw)
+            #matches = re.findall(r'"answer":\s*"?([0-9.\/\-年月日是否]+)', predict_result_raw)
+            matches = re.findall(r'"answer":\s*"?((?:[0-9.\/\-年月日是否]+|true|false))',
+                                predict_result_raw,
+                                re.IGNORECASE)
             predicted_answer = matches[-1] if matches else ''
 
             def parse_date(date_str):
@@ -54,7 +67,8 @@ def evaluation(input_path, **kwargs):
                 try:
                     score = 1.0 if float(correct_answer) == float(predicted_answer) else 0
                 except (TypeError, ValueError):
-                    score = 1.0 if str(correct_answer).strip() == str(predicted_answer).strip() else 0
+                    score = compute_match_ss_score(correct_answer, predicted_answer)
+                    #score = 1.0 if str(correct_answer).strip() == str(predicted_answer).strip() else 0
 
             d['eval_result'] = {"result": "True" if score == 1 else "False"}
             d['score'] = score
@@ -78,3 +92,8 @@ def evaluation(input_path, **kwargs):
     total_possible = sum(total_scores)
     overall_score = total_correct / total_possible if total_possible > 0 else 0
     return {"acc": overall_score}
+
+
+if __name__ == '__main__':
+    acc = evaluation("/mnt/workspace/inference/test.jsonl")
+    print("acc:", acc)
