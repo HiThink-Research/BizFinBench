@@ -4,30 +4,29 @@
   BizFinBench: A Business-Driven Real-World Financial Benchmark for Evaluating LLMs</h1>
     <p align="center">
     <span class="author-block">
-      Guilong Lu<sup>1,*</sup> </a>,</span>
-                <span class="author-block">
-      Xuntao Guo<sup>1,2,*</sup></a>, Rongjunchen Zhang<sup>1,♠</sup>, Wenqiao Zhu<sup>1</sup>,  Ji Liu<sup>1,♠</sup>
+      <h3 align="center"> HiThink Research Team </h3>
     </span>
     </div>
     <div class="is-size-5 publication-authors" style="margin-top: 10px;">
         <span class="author-block">
-            <sup>1</sup>Hithink Research, <sup>2</sup>Harbin Institute of Technology
-        </span>
-        <br>
-        <span class="author-block">
-            <sup>*</sup>Co-first authors, <sup>♠</sup>Corresponding author, {zhangrongjunchen, liuji}@myhexin.com
+            <h4 align="center">Corresponding author, {zhangrongjunchen, liuji}@myhexin.com </h4>
         </span>
     </div>
   </p>
   <p>
-  📖<a href="https://arxiv.org/abs/2505.19457">Paper</a> |🏠<a href="https://hithink-research.github.io/BizFinBench/">Homepage</a></h3>|🤗<a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench">Huggingface</a></h3>
+  BizFinBench.v1: 📖<a href="https://arxiv.org/abs/2505.19457">Paper</a> |🏠<a href="https://hithink-research.github.io/BizFinBench/">Homepage</a></h3>|🤗<a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench">Huggingface</a></h3>
+  </p>
+  <p>
+  BizFinBench.v2: 📖<a href="">Paper</a> |🏠<a href="https://hithink-research.github.io/BizFinBench.v2/">Homepage</a></h3>|🤗<a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench.v2">Huggingface</a></h3>
   </p>
 <div align="center"></div>
 <p align="center">
 
-Large language models excel across general tasks, yet judging their reliability in logic‑heavy, precision‑critical domains such as finance, law and healthcare is still difficult. To address this challenge, we propose **BizFinBench**, the first benchmark grounded in real-world financial applications. **BizFinBench** comprises over 100,000+ bilingual (English & Chinese) financial questions, each rooted in real-world business scenarios. The first public release, **BizFinBench.v1**, delivers 6,781 well annotated Chinese queries, covering five dimensions: numerical calculation, reasoning, information extraction, prediction recognition and knowledge‐based question answering, which are mapped to nine fine-grained categories.
+Large language models excel across general tasks, yet judging their reliability in logic‑heavy, precision‑critical domains such as finance, law and healthcare is still difficult. To address this challenge, we propose **BizFinBench**, the first benchmark grounded in real-world financial applications. **BizFinBench** comprises over 100,000+ bilingual (English & Chinese) financial questions, each rooted in real-world business scenarios. 
 
 ## 📢 News 
+- 🚀 [09/01/2026] [BizFinBench.v2](https://github.com/HiThink-Research/BizFinBench.v2) is out: 29,578 real-world financial questions so tough that ChatGPT-5 only scores 61.5/100.
+  
 - 🚀 [04/07/2025] External API support is now live—evaluate BizFinBench with your own endpoints in just a few calls.
 
 - 🚀 [16/05/2025] We released <strong>BizFinBench.v1</strong> benchmark, the first benchmark grounded in real-world financial applications.
