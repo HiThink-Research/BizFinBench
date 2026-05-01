@@ -9,15 +9,15 @@
     </div>
     <div class="is-size-5 publication-authors" style="margin-top: 10px;">
         <span class="author-block">
-            <h4 align="center">Corresponding author, {zhangrongjunchen, liuji}@myhexin.com </h4>
+            <h4 align="center">Corresponding author, zhangrongjunchen@myhexin.com </h4>
         </span>
     </div>
   </p>
   <p>
-  BizFinBench.v1: 📖<a href="https://arxiv.org/abs/2505.19457">Paper</a> |🏠<a href="https://hithink-research.github.io/BizFinBench/">Homepage</a></h3>|🤗<a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench">Huggingface</a></h3>
+  BizFinBench.v1 (Outdated): 📖<a href="https://arxiv.org/abs/2505.19457">Paper</a> |🏠<a href="https://hithink-research.github.io/BizFinBench/">Homepage</a></h3>|🤗<a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench">Huggingface</a></h3>
   </p>
   <p>
-  BizFinBench.v2: 📖<a href="">Paper</a> |🏠<a href="https://hithink-research.github.io/BizFinBench.v2/">Homepage</a></h3>|🤗<a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench.v2">Huggingface</a></h3>
+  BizFinBench.v2 (ICML 2026, Yes use this version): 📖<a href="">Paper</a> |🏠<a href="https://hithink-research.github.io/BizFinBench.v2/">Homepage</a></h3>|🤗<a href="https://huggingface.co/datasets/HiThink-Research/BizFinBench.v2">Huggingface</a></h3>
   </p>
 <div align="center"></div>
 <p align="center">
@@ -25,6 +25,8 @@
 Large language models excel across general tasks, yet judging their reliability in logic‑heavy, precision‑critical domains such as finance, law and healthcare is still difficult. To address this challenge, we propose **BizFinBench**, the first benchmark grounded in real-world financial applications. **BizFinBench** comprises over 100,000+ bilingual (English & Chinese) financial questions, each rooted in real-world business scenarios. 
 
 ## 📢 News 
+- 🚀 [01/05/2026] [BizFinBench.v2](https://github.com/HiThink-Research/BizFinBench.v2) has been accepted to ICML 2026.
+ 
 - 🚀 [09/01/2026] [BizFinBench.v2](https://github.com/HiThink-Research/BizFinBench.v2) is out: 29,578 real-world financial questions so tough that ChatGPT-5 only scores 61.5/100.
   
 - 🚀 [04/07/2025] External API support is now live—evaluate BizFinBench with your own endpoints in just a few calls.
